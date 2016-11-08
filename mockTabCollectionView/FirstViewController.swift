@@ -56,11 +56,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath) as! TabCell
 
-        let titleLabel = cell.contentView.viewWithTag(1) as! UILabel
-        titleLabel.text = String(indexPath.row + 1)
-
+        cell.tabTitle.text = String(indexPath.row)
         return cell
     }
 }

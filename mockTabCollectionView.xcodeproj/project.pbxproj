@@ -14,6 +14,7 @@
 		32B2C5631DD196170021CE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B2C5621DD196170021CE31 /* Assets.xcassets */; };
 		32B2C5661DD196170021CE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B2C5641DD196170021CE31 /* LaunchScreen.storyboard */; };
 		32B2C56F1DD19F400021CE31 /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B2C56D1DD19F400021CE31 /* WebView.storyboard */; };
+		32B2C5711DD1BEDF0021CE31 /* TabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2C5701DD1BEDF0021CE31 /* TabCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		32B2C5651DD196170021CE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32B2C5671DD196170021CE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32B2C56E1DD19F400021CE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WebView.storyboard; sourceTree = "<group>"; };
+		32B2C5701DD1BEDF0021CE31 /* TabCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,15 @@
 		32B2C5581DD196160021CE31 /* mockTabCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				32B2C5671DD196170021CE31 /* Info.plist */,
 				32B2C5591DD196160021CE31 /* AppDelegate.swift */,
 				32B2C55B1DD196160021CE31 /* FirstViewController.swift */,
 				32B2C55D1DD196160021CE31 /* SecondViewController.swift */,
-				32B2C55F1DD196170021CE31 /* Main.storyboard */,
-				32B2C56D1DD19F400021CE31 /* WebView.storyboard */,
+				32B2C5701DD1BEDF0021CE31 /* TabCell.swift */,
 				32B2C5621DD196170021CE31 /* Assets.xcassets */,
 				32B2C5641DD196170021CE31 /* LaunchScreen.storyboard */,
-				32B2C5671DD196170021CE31 /* Info.plist */,
+				32B2C55F1DD196170021CE31 /* Main.storyboard */,
+				32B2C56D1DD19F400021CE31 /* WebView.storyboard */,
 			);
 			path = mockTabCollectionView;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				32B2C55E1DD196160021CE31 /* SecondViewController.swift in Sources */,
 				32B2C55A1DD196160021CE31 /* AppDelegate.swift in Sources */,
 				32B2C55C1DD196160021CE31 /* FirstViewController.swift in Sources */,
+				32B2C5711DD1BEDF0021CE31 /* TabCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
