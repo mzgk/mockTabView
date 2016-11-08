@@ -11,7 +11,7 @@ import UIKit
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var Index = 1
+    var itemCount = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     @IBAction func tapAddButton(_ sender: UIButton) {
         // DataSourceに＋１して、更新
-        Index += 1
+        itemCount += 1
         collectionView.reloadData()
     }
 
@@ -39,20 +39,20 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         let indexPath = collectionView.indexPath(for: cell)
 
         // DataSourceを－１して、Itemを削除し、更新
-        Index -= 1
+        itemCount -= 1
         collectionView.deleteItems(at: [indexPath!])
         collectionView.reloadData()
 
         // もし０個になったら、１個作成
-        if Index == 0 {
-            Index += 1
+        if itemCount == 0 {
+            itemCount += 1
             collectionView.reloadData()
         }
     }
 
 // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Index
+        return itemCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
