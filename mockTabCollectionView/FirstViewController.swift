@@ -11,6 +11,7 @@ import UIKit
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var Index = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
     @IBAction func tapAddButton(_ sender: UIButton) {
+        Index += 1
+        collectionView.reloadData()
     }
 
     @IBAction func tapRemoveButton(_ sender: UIButton) {
@@ -34,11 +37,14 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Index
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath)
+
+        let titleLabel = cell.contentView.viewWithTag(1) as! UILabel
+        titleLabel.text = String(indexPath.row + 1)
 
         return cell
     }
