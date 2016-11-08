@@ -28,11 +28,26 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
     @IBAction func tapAddButton(_ sender: UIButton) {
+        // DataSourceに＋１して、更新
         Index += 1
         collectionView.reloadData()
     }
 
     @IBAction func tapRemoveButton(_ sender: UIButton) {
+        // ボタンがタップされたセルを取得
+        let cell = sender.superview?.superview as! UICollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)
+
+        // DataSourceを－１して、Itemを削除し、更新
+        Index -= 1
+        collectionView.deleteItems(at: [indexPath!])
+        collectionView.reloadData()
+
+        // もし０個になったら、１個作成
+        if Index == 0 {
+            Index += 1
+            collectionView.reloadData()
+        }
     }
 
 // MARK: - UICollectionViewDataSource
