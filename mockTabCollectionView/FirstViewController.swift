@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TabCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var itemCount = 1
@@ -33,9 +33,24 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.reloadData()
     }
 
-    @IBAction func tapRemoveButton(_ sender: UIButton) {
+// MARK: - UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return itemCount
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath) as! TabCell
+        cell.delegate = self
+        cell.tabTitle.text = String(indexPath.row)
+        return cell
+    }
+
+// MARK: - TabCellDelegate
+    // セルのカスタムクラスを作成し、Outlet接続しておけば、Actionは直接ViewControllerと紐付けても処理されるが、
+    // ボタンはセルにあるので、デリゲートパターンで対応
+    func tabClose(button: UIButton) {
         // ボタンがタップされたセルを取得
-        let cell = sender.superview?.superview as! UICollectionViewCell
+        let cell = button.superview?.superview as! UICollectionViewCell
         let indexPath = collectionView.indexPath(for: cell)
 
         // DataSourceを－１して、Itemを削除し、更新
@@ -48,18 +63,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
             itemCount += 1
             collectionView.reloadData()
         }
-    }
-
-// MARK: - UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath) as! TabCell
-
-        cell.tabTitle.text = String(indexPath.row)
-        return cell
     }
 }
 

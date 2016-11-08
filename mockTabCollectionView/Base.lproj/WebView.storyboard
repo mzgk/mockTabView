@@ -51,7 +51,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-4d-GvL">
                                                     <rect key="frame" x="75" y="12" width="22" height="26"/>
                                                     <connections>
-                                                        <action selector="tapRemoveButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vwf-7a-4EX"/>
+                                                        <action selector="tapCloseButton:" destination="iMg-5D-AKp" eventType="touchUpInside" id="XiI-mp-dwj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
