@@ -8,11 +8,16 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +26,21 @@ class FirstViewController: UIViewController {
     }
 
 
+    @IBAction func tapAddButton(_ sender: UIButton) {
+    }
+
+    @IBAction func tapRemoveButton(_ sender: UIButton) {
+    }
+
+// MARK: - UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabCell", for: indexPath)
+
+        return cell
+    }
 }
 
